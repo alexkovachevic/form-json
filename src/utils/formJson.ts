@@ -11,7 +11,7 @@ function itemsOf(form: HTMLFormElement): Item[] {
   const { length } = elements
 
   for (let i = 0; i < length; ++i) {
-    let { name, value, type, checked } = elements.item(i) as HTMLInputElement
+    let { name, value, type, checked, id } = elements.item(i) as HTMLInputElement
 
     if (type === 'checkbox') {
       value = !!checked as any
@@ -29,7 +29,7 @@ function itemsOf(form: HTMLFormElement): Item[] {
       value = new Date(value) as any
     }
 
-    items.push({ name, value, type, checked })
+    items.push({ name, value, type, checked, id })
   }
 
   return items
